@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { DemoRequestModal } from "@/components/demo-request-modal"
 import { ArrowRight, CheckCircle2, AlertTriangle, FileText, Play } from "lucide-react"
 
 const workflowSteps = [
@@ -55,10 +56,12 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2">
-                申请产品演示
-                <ArrowRight className="w-4 h-4" />
-              </Button>
+              <DemoRequestModal>
+                <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2">
+                  申请产品演示
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </DemoRequestModal>
               <Button size="lg" variant="outline" className="border-border hover:bg-secondary">
                 查看解决方案
               </Button>

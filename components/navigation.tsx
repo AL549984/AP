@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { DemoRequestModal } from "@/components/demo-request-modal"
 
 const navItems = [
   { label: "产品", href: "#product" },
@@ -43,12 +44,14 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="ghost" size="sm" className="text-muted-foreground">
-              商务合作
+            <Button variant="ghost" size="sm" className="text-muted-foreground" asChild>
+              <a href="#business">商务合作</a>
             </Button>
-            <Button size="sm" className="bg-primary hover:bg-primary/90">
-              申请演示
-            </Button>
+            <DemoRequestModal>
+              <Button size="sm" className="bg-primary hover:bg-primary/90">
+                申请演示
+              </Button>
+            </DemoRequestModal>
           </div>
 
           {/* Mobile menu button */}
@@ -77,12 +80,14 @@ export function Navigation() {
               </a>
             ))}
             <div className="pt-4 flex flex-col gap-2">
-              <Button variant="ghost" size="sm" className="justify-start text-muted-foreground">
-                商务合作
+              <Button variant="ghost" size="sm" className="justify-start text-muted-foreground" asChild>
+                <a href="#business" onClick={() => setMobileMenuOpen(false)}>商务合作</a>
               </Button>
-              <Button size="sm" className="bg-primary hover:bg-primary/90">
-                申请演示
-              </Button>
+              <DemoRequestModal>
+                <Button size="sm" className="bg-primary hover:bg-primary/90" onClick={() => setMobileMenuOpen(false)}>
+                  申请演示
+                </Button>
+              </DemoRequestModal>
             </div>
           </div>
         </div>
